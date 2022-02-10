@@ -7,6 +7,7 @@ const isEmailOnBody = require('../middlewares/isEmailOnBody');
 const isPasswordLengthValid = require('../middlewares/isPasswordLengthValid');
 const isPasswordOnBody = require('../middlewares/isPasswordOnBody');
 const isEmailAlreadyExist = require('../middlewares/isEmailAlreadyExist');
+const validatedToken = require('../middlewares/isTokenValid');
 
 const routes = express.Router();
 
@@ -19,5 +20,9 @@ routes.post('/',
     isPasswordLengthValid,
     isEmailAlreadyExist,
     UserController.userController);
+
+routes.get('/',
+    validatedToken,
+    UserController.getAllController);
 
 module.exports = routes;

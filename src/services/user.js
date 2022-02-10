@@ -12,6 +12,12 @@ const createUserService = async (displayName, email, password, image) => {
     return token;
 };
 
+const getAllService = async () => {
+    const allUsers = await User.findAll();
+    return allUsers;
+};
+
 module.exports = {
     createUserService,
+    getAllService,
 };

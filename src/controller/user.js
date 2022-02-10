@@ -10,4 +10,16 @@ const userController = async (req, res) => {
        }
 };
 
-module.exports = { userController };
+const getAllController = async (req, res) => {
+    try {
+        const users = await userService.getAllService();
+        return res.status(200).json(users);
+    } catch (error) {
+        res.status(401).json({ message: error.message });
+    }
+};
+
+module.exports = { 
+    userController,
+    getAllController,
+};
