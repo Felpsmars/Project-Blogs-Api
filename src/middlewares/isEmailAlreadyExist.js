@@ -9,7 +9,7 @@ const isEmailAlreadyExist = async (req, res, next) => {
     }
 
     return res.status(409).json({ 
-        message: 'user already registered',
+        message: 'User already registered',
     });
 };
 
