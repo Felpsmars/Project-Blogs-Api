@@ -19,7 +19,18 @@ const getAllController = async (req, res) => {
     }
 };
 
+const findByPkController = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const findById = await userService.getByIdService(id);
+        return res.status(200).json(findById);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
 module.exports = { 
     userController,
     getAllController,
+    findByPkController,
 };
