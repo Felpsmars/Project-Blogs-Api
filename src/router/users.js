@@ -10,7 +10,7 @@ const isEmailAlreadyExist = require('../middlewares/isEmailAlreadyExist');
 
 const routes = express.Router();
 
-routes.post('/',
+routes.post('/user',
     isDisplayNameOnBody,
     isDisplayNameLengthValid,
     isEmailOnBody,

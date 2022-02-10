@@ -10,6 +10,6 @@ app.get('/', (request, response) => {
   response.send();
 });
 
-app.use('/users', userRouter);
+app.use('/', userRouter);
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
