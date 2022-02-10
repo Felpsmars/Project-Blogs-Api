@@ -25,4 +25,8 @@ routes.get('/',
     validatedToken,
     UserController.getAllController);
 
+routes.get('/:id',
+    validatedToken,
+    UserController.findByPkController);
+
 module.exports = routes;
