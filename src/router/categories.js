@@ -11,4 +11,8 @@ routes.post('/',
     isNameBlank, 
     categories.createCategoriesController);
 
+routes.get('/',
+    validatedToken,
+    categories.getAllController);
+
 module.exports = routes;
