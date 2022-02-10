@@ -1,11 +1,17 @@
+const jwt = require('jsonwebtoken');
 const { User } = require('../models');
 
-const createService = async ({ displayName, email, password, image }) => {
+const createUserService = async (displayName, email, password, image) => {
     const newUser = await User.create({ displayName, email, password, image });
 
-    return newUser;
+    const token = jwt.sign({ data: newUser.dataValues.id }, process.env.JWT_SECRET, {
+        expiresIn: '7d',
+        algorithm: 'HS256',
+      });
+
+    return token;
 };
 
 module.exports = {
-    createService,
+    createUserService,
 };

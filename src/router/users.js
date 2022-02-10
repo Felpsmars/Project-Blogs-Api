@@ -10,7 +10,7 @@ const isEmailAlreadyExist = require('../middlewares/isEmailAlreadyExist');
 
 const routes = express.Router();
 
-routes.post('/user',
+routes.post('/',
     isDisplayNameOnBody,
     isDisplayNameLengthValid,
     isEmailOnBody,
@@ -18,6 +18,6 @@ routes.post('/user',
     isPasswordOnBody,
     isPasswordLengthValid,
     isEmailAlreadyExist,
-    UserController.createController);
+    UserController.userController);
 
 module.exports = routes;
