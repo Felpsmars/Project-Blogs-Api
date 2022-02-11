@@ -1,6 +1,6 @@
 const isEmailFormatValid = (req, res, next) => {
     const { email } = req.body;
-    const regexEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/; 
+    const regexEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/; // regex based on https://regexlib.com/Search.aspx?k=email&AspxAutoDetectCookieSupport=1
     const validateRegex = regexEmail.test(email);
 
     if (!validateRegex) {
