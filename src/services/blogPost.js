@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { BlogPosts } = require('../models');
+const { Category, User, BlogPosts } = require('../models');
 
 const createBlogPostService = async (user, title, content, token) => {
     const { data } = jwt.verify(token, process.env.JWT_SECRET); 
@@ -9,6 +9,17 @@ const createBlogPostService = async (user, title, content, token) => {
     return dataPost;
 };
 
+const getAllBlogPostService = async () => { 
+    const allPosts = await BlogPosts.findAll({ 
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ] });
+
+    return allPosts;
+  };
+
 module.exports = {
     createBlogPostService,
+    getAllBlogPostService,
 }; 

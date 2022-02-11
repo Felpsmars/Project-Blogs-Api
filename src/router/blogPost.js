@@ -17,4 +17,8 @@ routes.post('/',
     isCategoryExist,
     blogPost.createBlogPostController);
 
+routes.get('/',
+    validatedToken,
+    blogPost.getAllBlogPostController);
+
 module.exports = routes;
