@@ -7,9 +7,8 @@ const createCategoriesService = async (name) => {
 };
 
 const getAllService = async () => {
-    console.log('Linha 10');
     const allCategories = await Category.findAll();
-    console.log(allCategories);
+
     return allCategories;
 };
 

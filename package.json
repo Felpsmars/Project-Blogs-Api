@@ -16,6 +16,7 @@
     "start": "node index.js",
     "drop": "npx sequelize-cli db:drop $",
     "seed": "npx sequelize-cli db:seed:all $",
+    "dev": "npm run drop && npm run prestart && npm run start",
     "test": "jest --runInBand",
     "test-coverage": "jest --runInBand --coverage",
     "debug": "nodemon index.js",
